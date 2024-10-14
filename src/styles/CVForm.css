@@ -1,0 +1,50 @@
+/* CVForm.css */
+.cv-form {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cv-form h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* GeneralInfo.css */
+.general-info, .educational-experience, .practical-experience {
+    margin-bottom: 20px;
+}
+
+.general-info input, .educational-experience input, .practical-experience input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.general-info button, .educational-experience button, .practical-experience button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.general-info button:hover, .educational-experience button:hover, .practical-experience button:hover {
+    background-color: #0056b3;
+}
+
+.general-info p, .educational-experience p, .practical-experience p {
+    margin: 5px 0;
+    color: #555;
+}

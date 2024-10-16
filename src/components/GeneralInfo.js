@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/GeneralInfo.css';
 
-const GeneralInfo = () => {
+const GeneralInfo = ({ onChange }) => {
     const [info, setInfo] = useState({ name: '', email: '', phone: '' });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setInfo({ ...info, [name]: value });
     };
+
+    useEffect(() => {
+        onChange(info);  // Pass the updated info back to CVForm
+    }, [info, onChange]);
 
     return (
         <div className="general-info">
@@ -38,3 +42,4 @@ const GeneralInfo = () => {
 };
 
 export default GeneralInfo;
+

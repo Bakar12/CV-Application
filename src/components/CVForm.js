@@ -22,7 +22,6 @@ const CVForm = () => {
     const [hobbies, setHobbies] = useState('');
     const [references, setReferences] = useState('');
 
-    // Export CV as a Word document
     const downloadWordDocument = async () => {
         const doc = new Document({
             sections: [
@@ -43,10 +42,22 @@ const CVForm = () => {
                         new Paragraph(`Phone: ${generalInfo.phone}`),
 
                         new Paragraph({ text: 'Educational Experience', heading: 'Heading1' }),
-                        ...education.map(edu => new Paragraph(`${edu.school}, ${edu.title}, ${edu.date}`)),
+                        ...education.map(edu => [
+                            new Paragraph(`${edu.school}, ${edu.title}, ${edu.date}`),
+                            ...edu.points.map(point => new Paragraph({
+                                bullet: { level: 0 },
+                                children: [new TextRun(point)]
+                            }))
+                        ]).flat(),
 
                         new Paragraph({ text: 'Practical Experience', heading: 'Heading1' }),
-                        ...experience.map(exp => new Paragraph(`${exp.company}, ${exp.position}, ${exp.dateFrom} - ${exp.dateTo}`)),
+                        ...experience.map(exp => [
+                            new Paragraph(`${exp.company}, ${exp.position}, ${exp.dateFrom} - ${exp.dateTo}`),
+                            ...exp.points.map(point => new Paragraph({
+                                bullet: { level: 0 },
+                                children: [new TextRun(point)]
+                            }))
+                        ]).flat(),
 
                         new Paragraph({ text: 'Skills', heading: 'Heading1' }),
                         new Paragraph(skills),

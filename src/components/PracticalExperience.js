@@ -1,48 +1,84 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/PracticalExperience.css';
 
-const PracticalExperience = () => {
-    const [isEditing, setIsEditing] = useState(true);
-    const [experience, setExperience] = useState({ company: '', position: '', responsibilities: '', dateFrom: '', dateTo: '' });
+const PracticalExperience = ({ onChange }) => {
+    const [experienceList, setExperienceList] = useState([
+        { company: '', position: '', dateFrom: '', dateTo: '', points: [''] }
+    ]);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setExperience({ ...experience, [name]: value });
+    const handleChange = (index, field, value) => {
+        const newExperienceList = [...experienceList];
+        newExperienceList[index][field] = value;
+        setExperienceList(newExperienceList);
     };
 
-    const handleSubmit = () => {
-        if (!experience.company || !experience.position || !experience.dateFrom || !experience.dateTo) {
-            alert('All fields must be filled out');
-            return;
-        }
-        setIsEditing(false);
+    const handlePointChange = (expIndex, pointIndex, value) => {
+        const newExperienceList = [...experienceList];
+        newExperienceList[expIndex].points[pointIndex] = value;
+        setExperienceList(newExperienceList);
     };
 
-    const handleEdit = () => setIsEditing(true);
+    const addNewPoint = (expIndex) => {
+        const newExperienceList = [...experienceList];
+        newExperienceList[expIndex].points.push('');
+        setExperienceList(newExperienceList);
+    };
+
+    const addNewExperience = () => {
+        setExperienceList([...experienceList, { company: '', position: '', dateFrom: '', dateTo: '', points: [''] }]);
+    };
+
+    useEffect(() => {
+        onChange(experienceList);  // Pass the updated list back to CVForm
+    }, [experienceList, onChange]);
 
     return (
         <div className="practical-experience">
-            {isEditing ? (
-                <div>
-                    <input name="company" value={experience.company} onChange={handleChange} placeholder="Company Name" />
-                    <input name="position" value={experience.position} onChange={handleChange} placeholder="Position Title" />
-                    <input name="responsibilities" value={experience.responsibilities} onChange={handleChange} placeholder="Main Responsibilities" />
-                    <input name="dateFrom" value={experience.dateFrom} onChange={handleChange} placeholder="Date From" />
-                    <input name="dateTo" value={experience.dateTo} onChange={handleChange} placeholder="Date To" />
-                    <button onClick={handleSubmit}>Submit</button>
+            <h2>Practical Experience</h2>
+            {experienceList.map((experience, expIndex) => (
+                <div key={expIndex} className="experience-entry">
+                    <input
+                        type="text"
+                        value={experience.company}
+                        onChange={(e) => handleChange(expIndex, 'company', e.target.value)}
+                        placeholder="Company Name"
+                    />
+                    <input
+                        type="text"
+                        value={experience.position}
+                        onChange={(e) => handleChange(expIndex, 'position', e.target.value)}
+                        placeholder="Position Title"
+                    />
+                    <input
+                        type="text"
+                        value={experience.dateFrom}
+                        onChange={(e) => handleChange(expIndex, 'dateFrom', e.target.value)}
+                        placeholder="Date From"
+                    />
+                    <input
+                        type="text"
+                        value={experience.dateTo}
+                        onChange={(e) => handleChange(expIndex, 'dateTo', e.target.value)}
+                        placeholder="Date To"
+                    />
+
+                    <h3>Responsibilities:</h3>
+                    {experience.points.map((point, pointIndex) => (
+                        <div key={pointIndex} className="point-entry">
+                            <textarea
+                                value={point}
+                                onChange={(e) => handlePointChange(expIndex, pointIndex, e.target.value)}
+                                placeholder="Responsibility or Task"
+                            />
+                        </div>
+                    ))}
+                    <button onClick={() => addNewPoint(expIndex)}>Add Another Responsibility</button>
                 </div>
-            ) : (
-                <div>
-                    <p>Company: {experience.company}</p>
-                    <p>Position: {experience.position}</p>
-                    <p>Responsibilities: {experience.responsibilities}</p>
-                    <p>Date From: {experience.dateFrom}</p>
-                    <p>Date To: {experience.dateTo}</p>
-                    <button onClick={handleEdit}>Edit</button>
-                </div>
-            )}
+            ))}
+            <button onClick={addNewExperience}>Add Another Experience</button>
         </div>
     );
 };
 
 export default PracticalExperience;
+

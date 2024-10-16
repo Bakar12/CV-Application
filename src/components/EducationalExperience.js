@@ -1,42 +1,75 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/EducationalExperience.css';
 
-const EducationalExperience = () => {
-    const [isEditing, setIsEditing] = useState(true);
-    const [education, setEducation] = useState({ school: '', title: '', date: '' });
+const EducationalExperience = ({ onChange }) => {
+    const [educationList, setEducationList] = useState([
+        { school: '', title: '', date: '', points: [''] }
+    ]);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setEducation({ ...education, [name]: value });
+    const handleChange = (index, field, value) => {
+        const newEducationList = [...educationList];
+        newEducationList[index][field] = value;
+        setEducationList(newEducationList);
     };
 
-    const handleSubmit = () => {
-        if (!education.school || !education.title || !education.date) {
-            alert('All fields must be filled out');
-            return;
-        }
-        setIsEditing(false);
+    const handlePointChange = (eduIndex, pointIndex, value) => {
+        const newEducationList = [...educationList];
+        newEducationList[eduIndex].points[pointIndex] = value;
+        setEducationList(newEducationList);
     };
 
-    const handleEdit = () => setIsEditing(true);
+    const addNewPoint = (eduIndex) => {
+        const newEducationList = [...educationList];
+        newEducationList[eduIndex].points.push('');
+        setEducationList(newEducationList);
+    };
+
+    const addNewEducation = () => {
+        setEducationList([...educationList, { school: '', title: '', date: '', points: [''] }]);
+    };
+
+    useEffect(() => {
+        onChange(educationList);  // Pass the updated list back to CVForm
+    }, [educationList, onChange]);
 
     return (
         <div className="educational-experience">
-            {isEditing ? (
-                <div>
-                    <input name="school" value={education.school} onChange={handleChange} placeholder="School Name" />
-                    <input name="title" value={education.title} onChange={handleChange} placeholder="Title of Study" />
-                    <input name="date" value={education.date} onChange={handleChange} placeholder="Date of Study" />
-                    <button onClick={handleSubmit}>Submit</button>
+            <h2>Educational Experience</h2>
+            {educationList.map((education, eduIndex) => (
+                <div key={eduIndex} className="education-entry">
+                    <input
+                        type="text"
+                        value={education.school}
+                        onChange={(e) => handleChange(eduIndex, 'school', e.target.value)}
+                        placeholder="School Name"
+                    />
+                    <input
+                        type="text"
+                        value={education.title}
+                        onChange={(e) => handleChange(eduIndex, 'title', e.target.value)}
+                        placeholder="Title of Study"
+                    />
+                    <input
+                        type="text"
+                        value={education.date}
+                        onChange={(e) => handleChange(eduIndex, 'date', e.target.value)}
+                        placeholder="Date of Study"
+                    />
+
+                    <h3>Details:</h3>
+                    {education.points.map((point, pointIndex) => (
+                        <div key={pointIndex} className="point-entry">
+                            <textarea
+                                value={point}
+                                onChange={(e) => handlePointChange(eduIndex, pointIndex, e.target.value)}
+                                placeholder="Detail or Achievement"
+                            />
+                        </div>
+                    ))}
+                    <button onClick={() => addNewPoint(eduIndex)}>Add Another Detail</button>
                 </div>
-            ) : (
-                <div>
-                    <p>School: {education.school}</p>
-                    <p>Title: {education.title}</p>
-                    <p>Date: {education.date}</p>
-                    <button onClick={handleEdit}>Edit</button>
-                </div>
-            )}
+            ))}
+            <button onClick={addNewEducation}>Add Another Education</button>
         </div>
     );
 };

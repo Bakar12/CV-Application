@@ -1,0 +1,11 @@
+.references {
+    margin: 20px 0;
+}
+
+.references input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}

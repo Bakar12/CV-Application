@@ -10,14 +10,15 @@ const Skills = () => {
 
     return (
         <div className="skills">
-            <input 
-                type="text" 
-                value={skills} 
-                onChange={handleChange} 
-                placeholder="Add your skills here" 
+            <h2>Skills</h2>
+            <textarea
+                value={skills}
+                onChange={handleChange}
+                placeholder="List your skills here"
             />
         </div>
     );
 };
 
 export default Skills;
+

@@ -1,37 +1,15 @@
 .practical-experience {
-    background-color: #ffffff;
+    background-color: #f9f9f9;
     padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .practical-experience input {
     width: 100%;
     padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-}
-
-.practical-experience button {
-    background-color: #17a2b8;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.practical-experience button:hover {
-    background-color: #138496;
-}
-
-.practical-experience p {
-    font-size: 18px;
-    color: #333;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }

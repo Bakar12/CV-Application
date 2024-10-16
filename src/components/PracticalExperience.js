@@ -2,30 +2,27 @@ import React, { useState } from 'react';
 import '../styles/PracticalExperience.css';
 
 const PracticalExperience = () => {
-    // State variables for editing mode and experience details
     const [isEditing, setIsEditing] = useState(true);
     const [experience, setExperience] = useState({ company: '', position: '', responsibilities: '', dateFrom: '', dateTo: '' });
 
-    // Event handler for input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setExperience({ ...experience, [name]: value });
     };
 
-    // Event handler for form submission
     const handleSubmit = () => {
+        if (!experience.company || !experience.position || !experience.dateFrom || !experience.dateTo) {
+            alert('All fields must be filled out');
+            return;
+        }
         setIsEditing(false);
     };
 
-    // Event handler for edit button click
-    const handleEdit = () => {
-        setIsEditing(true);
-    };
+    const handleEdit = () => setIsEditing(true);
 
     return (
         <div className="practical-experience">
             {isEditing ? (
-                // Render form inputs in editing mode
                 <div>
                     <input name="company" value={experience.company} onChange={handleChange} placeholder="Company Name" />
                     <input name="position" value={experience.position} onChange={handleChange} placeholder="Position Title" />
@@ -35,7 +32,6 @@ const PracticalExperience = () => {
                     <button onClick={handleSubmit}>Submit</button>
                 </div>
             ) : (
-                // Render experience details in non-editing mode
                 <div>
                     <p>Company: {experience.company}</p>
                     <p>Position: {experience.position}</p>

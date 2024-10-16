@@ -1,9 +1,11 @@
+/* Styles for the general info section */
 .general-info {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+/* Styles for input elements within the general info section */
 .general-info input {
     padding: 10px;
     font-size: 16px;
@@ -12,6 +14,7 @@
     width: 100%;
 }
 
+/* Styles for h2 headings */
 h2 {
     margin-bottom: 10px;
     color: #007bff;

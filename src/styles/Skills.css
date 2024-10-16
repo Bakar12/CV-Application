@@ -1,9 +1,11 @@
+/* Styles for the .skills class */
 .skills {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+/* Styles for textarea elements inside .skills */
 .skills textarea {
     padding: 10px;
     font-size: 16px;
@@ -13,6 +15,7 @@
     height: 100px;
 }
 
+/* Styles for h2 elements */
 h2 {
     margin-bottom: 10px;
     color: #007bff;

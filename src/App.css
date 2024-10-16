@@ -1,8 +1,10 @@
+/* This is the CSS code for the App component */
+
 .App {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: Arial, sans-serif; /* Set the font family to Arial or a sans-serif font */
+  background-color: #f4f4f4; /* Set the background color to #f4f4f4 */
+  min-height: 100vh; /* Set the minimum height to 100% of the viewport height */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center the content vertically */
+  justify-content: center; /* Center the content horizontally */
 }

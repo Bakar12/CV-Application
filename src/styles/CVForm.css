@@ -1,37 +1,37 @@
 .cv-form {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px; /* Sets the maximum width of the form */
+    margin: 0 auto; /* Centers the form horizontally */
+    padding: 20px; /* Adds padding around the form */
+    background-color: #ffffff; /* Sets the background color of the form */
+    border-radius: 8px; /* Adds rounded corners to the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a box shadow to the form */
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+    text-align: center; /* Centers the heading text */
+    margin-bottom: 20px; /* Adds margin at the bottom of the heading */
+    color: #333; /* Sets the color of the heading text */
 }
 
 .form-section {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Adds padding around the form section */
+    background-color: #f9f9f9; /* Sets the background color of the form section */
+    border-radius: 8px; /* Adds rounded corners to the form section */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a box shadow to the form section */
 }
 
 .export-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Adds margin at the top of the export button */
+    padding: 10px 20px; /* Adds padding to the export button */
+    background-color: #007bff; /* Sets the background color of the export button */
+    color: white; /* Sets the color of the export button text */
+    border: none; /* Removes the border of the export button */
+    border-radius: 5px; /* Adds rounded corners to the export button */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the export button */
+    font-size: 16px; /* Sets the font size of the export button text */
+    transition: background-color 0.3s ease; /* Adds a smooth transition effect to the background color of the export button */
 }
 
 .export-button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Changes the background color of the export button when hovering over it */
 }

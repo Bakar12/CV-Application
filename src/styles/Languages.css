@@ -1,7 +1,9 @@
+/* Styles for the .languages class */
 .languages {
     margin: 20px 0;
 }
 
+/* Styles for the input elements inside .languages */
 .languages input {
     width: 100%;
     padding: 10px;

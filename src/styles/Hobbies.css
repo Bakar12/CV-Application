@@ -1,7 +1,9 @@
+/* Styles for the .hobbies class */
 .hobbies {
     margin: 20px 0;
 }
 
+/* Styles for input elements inside .hobbies */
 .hobbies input {
     width: 100%;
     padding: 10px;

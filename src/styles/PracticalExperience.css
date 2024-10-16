@@ -1,11 +1,14 @@
+/* Set margin for the practical experience section */
 .practical-experience {
     margin: 20px 0;
 }
 
+/* Set margin for each experience entry */
 .experience-entry {
     margin-bottom: 20px;
 }
 
+/* Style the input and textarea elements within each experience entry */
 .experience-entry input,
 .experience-entry textarea {
     width: 100%;
@@ -15,6 +18,7 @@
     border: 1px solid #ccc;
 }
 
+/* Style the button element */
 button {
     background-color: #007bff;
     color: white;
@@ -25,6 +29,7 @@ button {
     margin-top: 10px;
 }
 
+/* Change button background color on hover */
 button:hover {
     background-color: #0056b3;
 }

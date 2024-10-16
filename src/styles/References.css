@@ -1,7 +1,9 @@
+/* This class styles the references section */
 .references {
     margin: 20px 0;
 }
 
+/* This styles the input elements within the references section */
 .references input {
     width: 100%;
     padding: 10px;

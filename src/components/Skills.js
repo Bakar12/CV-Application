@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import '../styles/Skills.css';
 
 const Skills = () => {
-    const [skills, setSkills] = useState('');
+    const [skills, setSkills] = useState(''); // State to store the skills
 
     const handleChange = (e) => {
-        setSkills(e.target.value);
+        setSkills(e.target.value); // Update the skills state when the textarea value changes
     };
 
     return (
@@ -21,4 +21,3 @@ const Skills = () => {
 };
 
 export default Skills;
-

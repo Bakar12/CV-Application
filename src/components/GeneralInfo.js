@@ -42,4 +42,3 @@ const GeneralInfo = ({ onChange }) => {
 };
 
 export default GeneralInfo;
-

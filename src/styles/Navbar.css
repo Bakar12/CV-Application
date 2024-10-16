@@ -1,26 +1,26 @@
 .navbar {
-    background-color: #007bff;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    border-radius: 5px;
+    background-color: #007bff; /* Set the background color to blue */
+    padding: 15px; /* Add padding around the navbar */
+    display: flex; /* Use flexbox to align the navbar items */
+    justify-content: center; /* Center the navbar items horizontally */
+    border-radius: 5px; /* Add rounded corners to the navbar */
 }
 
 .navbar ul {
-    list-style-type: none;
-    display: flex;
-    gap: 15px;
+    list-style-type: none; /* Remove the default bullet points from the list */
+    display: flex; /* Use flexbox to align the list items */
+    gap: 15px; /* Add a gap of 15px between the list items */
 }
 
 .navbar li {
-    cursor: pointer;
-    color: white;
-    padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    cursor: pointer; /* Change the cursor to a pointer when hovering over the list items */
+    color: white; /* Set the text color to white */
+    padding: 10px 15px; /* Add padding around the list items */
+    font-size: 16px; /* Set the font size to 16px */
+    border-radius: 5px; /* Add rounded corners to the list items */
+    transition: background-color 0.3s ease; /* Add a smooth transition effect when the background color changes */
 }
 
 .navbar li:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Change the background color to a darker blue when hovering over the list items */
 }
